@@ -3,6 +3,7 @@ import {
   Github, Linkedin, Mail, MapPin, 
   Clock, Download, Copy, Check 
 } from 'lucide-react';
+import resumePdf from '../../Resume of Mrunali Kale.pdf';
 
 interface ConnectViewProps {
   isDarkMode: boolean;
@@ -36,7 +37,7 @@ export default function ConnectView({ isDarkMode }: ConnectViewProps) {
     
     // Download the actual resume PDF file
     const link = document.createElement('a');
-    link.href = '/Resume of Mrunali Kale.pdf';
+    link.href = resumePdf;
     link.setAttribute('download', 'Resume of Mrunali Kale.pdf');
     document.body.appendChild(link);
     link.click();
