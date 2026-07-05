@@ -1,20 +1,69 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Mrunali Kale - Portfolio Website
 
-# Run and deploy your AI Studio app
+A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS. This portfolio showcases my projects, skills, and academic journey as a Computer Science student and full-stack developer.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/09d2f971-2c3b-4dfa-906c-ab511dc28b1e
+- 🎨 Clean, minimalist design with Swiss typography influence
+- 🌓 Dark/Light theme toggle with smooth transitions
+- 📱 Fully responsive mobile-first design
+- ✨ Smooth animations using Framer Motion
+- 🎯 Project showcase with detailed case studies
+- 📧 Contact and collaboration sections
+
+## Tech Stack
+
+- **Frontend:** React 19, TypeScript
+- **Styling:** Tailwind CSS v4
+- **Icons:** Lucide React
+- **Animations:** Framer Motion
+- **Build Tool:** Vite
+- **Fonts:** Inter, Outfit, JetBrains Mono
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+**Prerequisites:** Node.js 18+
 
+1. Clone the repository:
+   ```bash
+   git clone <your-repo-url>
+   cd PortfolioMK
+   ```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Build for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+## Project Structure
+
+```
+src/
+├── components/     # React components
+├── data.ts        # Project and certification data
+├── types.ts       # TypeScript type definitions
+├── index.css      # Global styles and Tailwind config
+└── App.tsx        # Main application component
+```
+
+## License
+
+© 2026 Mrunali Kale. All rights reserved.
+
+---
+
+Designed and built by Mrunali Kale • San Francisco Bay Area, CA

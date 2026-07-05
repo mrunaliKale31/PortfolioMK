@@ -34,12 +34,8 @@ export default function ProjectDetailView({ project, onBack, onSelectProject, is
           }`}
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
-          <span>Return to Registry Archives</span>
+          <span>Return to Project Archives</span>
         </button>
-
-        <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-semibold">
-          Lab ID: {project.id}
-        </span>
       </div>
 
       {/* 2. HERO BANNER */}
@@ -74,23 +70,35 @@ export default function ProjectDetailView({ project, onBack, onSelectProject, is
           <div className="p-4 space-y-1">
             <div className="text-[9px] text-zinc-500 uppercase font-semibold">System Status</div>
             <div className={`font-semibold flex items-center gap-1.5 ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
+              <span className={`w-1.5 h-1.5 rounded-full inline-block ${
+                project.status === 'Completed' ? 'bg-emerald-500 animate-pulse' : 'bg-amber-500 animate-pulse'
+              }`} />
               {project.status}
             </div>
           </div>
           <div className="p-4 space-y-1">
-            <div className="text-[9px] text-zinc-500 uppercase font-semibold">Primary Client</div>
+            <div className="text-[9px] text-zinc-500 uppercase font-semibold">Development Role</div>
             <div className={`font-semibold ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>
-              {project.id.includes('collab') ? 'Academic Workspace' : 'Core SaaS Utilities'}
+              {project.id.includes('vosk') ? 'Group Project' : 'Solo Developer'}
             </div>
           </div>
           <div className="p-4 space-y-1">
-            <div className="text-[9px] text-zinc-500 uppercase font-semibold">Est. Development Time</div>
-            <div className={`font-semibold ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>48-60 Learning Hrs</div>
+            <div className="text-[9px] text-zinc-500 uppercase font-semibold">Development Duration</div>
+            <div className={`font-semibold ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>
+              {project.id.includes('multi-provider') ? '5-6 weeks' : 
+               project.id.includes('feedbackpro') ? '4 weeks' : 
+               project.id.includes('clickaware') ? '5 weeks' : 
+               project.id.includes('academia-ace') ? '4 weeks' : '3 weeks'}
+            </div>
           </div>
           <div className="p-4 space-y-1">
-            <div className="text-[9px] text-zinc-500 uppercase font-semibold">Production Deployments</div>
-            <div className={`font-semibold ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Vite App (Static / Render)</div>
+            <div className="text-[9px] text-zinc-500 uppercase font-semibold">Deployment Platform</div>
+            <div className={`font-semibold ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>
+              {project.id.includes('multi-provider') ? 'Local/Docker' : 
+               project.id.includes('clickaware') ? 'Flask Local' : 
+               project.id.includes('vosk') ? 'Ubuntu Touch' : 
+               project.id.includes('academia-ace') ? 'Vite/Supabase' : 'Node.js Local'}
+            </div>
           </div>
         </div>
       </section>
@@ -100,7 +108,7 @@ export default function ProjectDetailView({ project, onBack, onSelectProject, is
         isDarkMode ? 'border-zinc-900' : 'border-zinc-200'
       }`}>
         <p className={`text-xs max-w-md leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>
-          Explore the live engineering endpoints, audit the complete codebase structures on GitHub, or review educational workspace integration manifests.
+          Explore the live deployment or review the complete codebase on GitHub.
         </p>
 
         <div className="flex flex-wrap gap-2">
@@ -130,31 +138,16 @@ export default function ProjectDetailView({ project, onBack, onSelectProject, is
             <Globe className="w-4 h-4" />
             <span>Live Demonstration</span>
           </a>
-          {project.docUrl && (
-            <a
-              href={project.docUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`px-4 py-2 border rounded-lg text-xs font-semibold flex items-center gap-2 transition-all cursor-pointer ${
-                isDarkMode 
-                  ? 'bg-zinc-900 hover:bg-zinc-850 text-white border-zinc-800' 
-                  : 'bg-zinc-50 hover:bg-zinc-100 text-zinc-850 border-zinc-200 shadow-2xs'
-              }`}
-            >
-              <span>Systems Docs</span>
-              <ExternalLink className="w-3.5 h-3.5 text-zinc-500" />
-            </a>
-          )}
         </div>
       </div>
 
       {/* 4. OVERVIEW & DEMO GRAPHIC */}
-      <section className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <section className="space-y-4">
         
         {/* Project overview description */}
-        <div className="lg:col-span-1 space-y-4">
-          <h3 className="text-xs font-mono text-zinc-500 uppercase tracking-widest font-semibold">Executive Narrative</h3>
-          <h4 className={`text-lg font-bold tracking-tight leading-snug transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>The Academic Catalyst</h4>
+        <div className="space-y-4">
+          <h3 className="text-xs font-mono text-zinc-500 uppercase tracking-widest font-semibold">Executive Overview</h3>
+          <h4 className={`text-lg font-bold tracking-tight leading-snug transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Project Purpose</h4>
           <p className={`text-xs leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>
             {project.longDescription}
           </p>
@@ -162,7 +155,7 @@ export default function ProjectDetailView({ project, onBack, onSelectProject, is
           <div className={`p-4 border rounded-xl space-y-3 pt-4 transition-all duration-300 ${
             isDarkMode ? 'bg-zinc-950 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
           }`}>
-            <h5 className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider font-semibold">Technology Stack Breakdown</h5>
+            <h5 className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider font-semibold">Technology Stack</h5>
             <div className="flex flex-wrap gap-1.5">
               {project.techStack.map((tech) => (
                 <span key={tech} className={`text-[9px] font-mono px-2 py-0.5 rounded border transition-colors ${
@@ -174,58 +167,6 @@ export default function ProjectDetailView({ project, onBack, onSelectProject, is
                 </span>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* Demo Video/Interface Simulator Placeholder */}
-        <div className={`border rounded-2xl overflow-hidden p-6 flex flex-col justify-between h-[340px] transition-all duration-300 ${
-          isDarkMode ? 'bg-[#090909] border-zinc-900' : 'bg-zinc-50 border-zinc-200 shadow-inner'
-        }`}>
-          <div className={`flex items-center justify-between pb-3 border-b ${
-            isDarkMode ? 'border-zinc-900' : 'border-zinc-200'
-          }`}>
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block" />
-              <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block" />
-              <span className="text-[10px] font-mono text-zinc-500 ml-2">simulator_interface.exe</span>
-            </div>
-            <span className="text-[9px] font-mono text-zinc-500 flex items-center gap-1">
-              <Zap className="w-3 h-3 text-amber-400 animate-pulse" /> CORE ACCELERATED
-            </span>
-          </div>
-
-          {/* Graphical simulation panel */}
-          <div className="flex-1 flex flex-col items-center justify-center text-center space-y-4 px-4 py-8">
-            <Terminal className="w-12 h-12 text-zinc-500" />
-            <div className="space-y-1">
-              <p className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Interactive Project Canvas Emulator</p>
-              <p className={`text-[10px] font-mono max-w-sm leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-500' : 'text-zinc-600'}`}>
-                A student project simulation is configured. You can interact with dynamic structures, trigger local variables, and test edge conditions directly in the demonstration links.
-              </p>
-            </div>
-            <div className="flex gap-2">
-              <a 
-                href={project.liveDemoUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className={`px-3.5 py-1.5 border text-[10px] font-mono flex items-center gap-1 cursor-pointer rounded transition-all ${
-                  isDarkMode 
-                    ? 'bg-zinc-900 border-zinc-800 hover:border-zinc-700 text-white' 
-                    : 'bg-white border-zinc-250 hover:bg-zinc-100 text-zinc-850 shadow-2xs'
-                }`}
-              >
-                <span>Launch Demo Viewport</span> <ArrowLeft className="w-3 h-3 rotate-180" />
-              </a>
-            </div>
-          </div>
-
-          <div className={`flex items-center justify-between pt-3 text-[10px] font-mono text-zinc-500 border-t ${
-            isDarkMode ? 'border-zinc-900' : 'border-zinc-200'
-          }`}>
-            <span>Render: Client Only</span>
-            <span>Buffered: 100%</span>
-            <span>Refreshes: HMR-Friendly</span>
           </div>
         </div>
       </section>
@@ -286,21 +227,11 @@ export default function ProjectDetailView({ project, onBack, onSelectProject, is
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-rose-500 font-semibold">
                 <AlertCircle className="w-5 h-5 flex-shrink-0" />
-                <h4 className="text-xs font-semibold uppercase tracking-wider font-mono">The Student Problem Statement</h4>
+                <h4 className="text-xs font-semibold uppercase tracking-wider font-mono">Problem Statement</h4>
               </div>
               <p className={`text-xs leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>
-                Web layout elements often behave unpredictably when components load out of order, which is compounded on slow client connections. Keeping variables clean, organized, and properly bound prevents layout shift and code clutter.
+                {project.problemStatement}
               </p>
-              <div className={`p-4 border rounded-lg space-y-2 transition-all ${
-                isDarkMode ? 'bg-zinc-900/40 border-zinc-800' : 'bg-zinc-50 border-zinc-200'
-              }`}>
-                <div className="text-[10px] font-mono text-zinc-500 uppercase font-semibold">IDENTIFIED BOTTLENECKS</div>
-                <ul className={`text-xs space-y-1.5 list-disc pl-4 font-sans transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>
-                  <li>Components waiting on API loads causing flash-of-unstyled-content.</li>
-                  <li>Overloaded state variables leading to infinite component loops.</li>
-                  <li>State sync loss when the browser window loses focus.</li>
-                </ul>
-              </div>
             </div>
           )}
 
@@ -308,19 +239,19 @@ export default function ProjectDetailView({ project, onBack, onSelectProject, is
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-emerald-500 font-semibold">
                 <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
-                <h4 className="text-xs font-semibold uppercase tracking-wider font-mono">Optimistic State Synchronization</h4>
+                <h4 className="text-xs font-semibold uppercase tracking-wider font-mono">Implementation Approach</h4>
               </div>
               <p className={`text-xs leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>
-                By implementing robust modular states, we isolate visual updates from network latency. Variables reflect local client actions immediately, and sync with persistent stores in the background.
+                {project.solution}
               </p>
               <div className={`p-4 border rounded-lg space-y-2 transition-all ${
                 isDarkMode ? 'bg-zinc-900/40 border-zinc-800' : 'bg-zinc-50 border-zinc-200'
               }`}>
-                <div className="text-[10px] font-mono text-zinc-500 uppercase font-semibold">IMPLEMENTATION ADVANTAGES</div>
+                <div className="text-[10px] font-mono text-zinc-500 uppercase font-semibold">KEY FEATURES</div>
                 <ul className={`text-xs space-y-1.5 list-disc pl-4 font-sans transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>
-                  <li>Sub-millisecond visual reactivity for user actions.</li>
-                  <li>Clean separation of concerns within individual React hook files.</li>
-                  <li>Rigorous responsive spacing and type sizing throughout.</li>
+                  {project.features.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -330,23 +261,23 @@ export default function ProjectDetailView({ project, onBack, onSelectProject, is
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-indigo-500 font-semibold">
                 <Clock className="w-5 h-5 flex-shrink-0" />
-                <h4 className="text-xs font-semibold uppercase tracking-wider font-mono">Student Development Challenges</h4>
+                <h4 className="text-xs font-semibold uppercase tracking-wider font-mono">Development Journey</h4>
               </div>
               <p className={`text-xs leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>
-                As a student, keeping structures clean and simple was an excellent lesson in scope discipline. Instead of adding heavy unneeded tools, I designed standard logic with robust local browser storage structures.
+                {project.challenges}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className={`p-3 border rounded-lg space-y-1 transition-all ${
                   isDarkMode ? 'bg-zinc-900/30 border-zinc-800/80' : 'bg-white border-zinc-200 shadow-2xs'
                 }`}>
                   <span className="text-[10px] font-mono text-zinc-500 uppercase block font-semibold">Lessons Learned</span>
-                  <p className={`text-[11px] leading-normal transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>Keep design metrics aligned. Standard grids and typography lead to cleaner CSS declarations.</p>
+                  <p className={`text-[11px] leading-normal transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>{project.lessonsLearned}</p>
                 </div>
                 <div className={`p-3 border rounded-lg space-y-1 transition-all ${
                   isDarkMode ? 'bg-zinc-900/30 border-zinc-800/80' : 'bg-white border-zinc-200 shadow-2xs'
                 }`}>
-                  <span className="text-[10px] font-mono text-zinc-500 uppercase block font-semibold">Future Roadmap</span>
-                  <p className={`text-[11px] leading-normal transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>Investigating state optimization with WebWorkers to move computing off the main presentation thread.</p>
+                  <span className="text-[10px] font-mono text-zinc-500 uppercase block font-semibold">Future Improvements</span>
+                  <p className={`text-[11px] leading-normal transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>{project.futureImprovements}</p>
                 </div>
               </div>
             </div>
@@ -390,32 +321,7 @@ export default function ProjectDetailView({ project, onBack, onSelectProject, is
         </div>
       </section>
 
-      {/* 6. IMAGE GALLERY GRID */}
-      <section className="space-y-4">
-        <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-widest font-semibold">Asset Layout Gallery</h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className={`p-6 border rounded-xl h-40 flex flex-col justify-between transition-all duration-300 ${
-            isDarkMode ? 'bg-zinc-950 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
-          }`}>
-            <span className="text-[10px] font-mono text-zinc-500 uppercase font-semibold">ASSET_MOCKUP_01.PNG</span>
-            <div>
-              <h5 className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Adaptive Layout Canvas</h5>
-              <p className={`text-[10px] mt-1 transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>Shows responsive grid spacing collapsing elegantly on layout resizes.</p>
-            </div>
-          </div>
-          <div className={`p-6 border rounded-xl h-40 flex flex-col justify-between transition-all duration-300 ${
-            isDarkMode ? 'bg-zinc-950 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
-          }`}>
-            <span className="text-[10px] font-mono text-zinc-500 uppercase font-semibold">ASSET_MOCKUP_02.PNG</span>
-            <div>
-              <h5 className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Visual Metrics Console</h5>
-              <p className={`text-[10px] mt-1 transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>Illustrating clean client writes registering inside our profiling viewport logs.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. CASE STUDY PREVIOUS / NEXT NAVIGATION */}
+      {/* 5. INTERACTIVE CONTENT TABS (PROBLEM, SOLUTION, JOURNEY, ARCHITECTURE) */}
       <section className={`flex items-center justify-between border-t pt-8 transition-colors duration-300 ${
         isDarkMode ? 'border-zinc-900' : 'border-zinc-200'
       }`}>
@@ -431,7 +337,7 @@ export default function ProjectDetailView({ project, onBack, onSelectProject, is
             >
               <ChevronLeft className="w-4 h-4 text-zinc-500 group-hover:-translate-x-0.5 transition-transform" />
               <div>
-                <span className="text-[9px] font-mono text-zinc-500 uppercase block font-semibold">PREVIOUS LAB</span>
+                <span className="text-[9px] font-mono text-zinc-500 uppercase block font-semibold">PREVIOUS PROJECT</span>
                 <span className={`text-xs font-semibold max-w-[150px] truncate block transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-950'}`}>{prevProject.title}</span>
               </div>
             </button>
@@ -444,7 +350,7 @@ export default function ProjectDetailView({ project, onBack, onSelectProject, is
           onClick={onBack}
           className="text-xs font-mono text-zinc-500 hover:text-zinc-950 underline cursor-pointer font-semibold"
         >
-          All Labs
+          All Projects
         </button>
 
         <div>
@@ -458,7 +364,7 @@ export default function ProjectDetailView({ project, onBack, onSelectProject, is
               }`}
             >
               <div>
-                <span className="text-[9px] font-mono text-zinc-500 uppercase block font-semibold">NEXT LAB</span>
+                <span className="text-[9px] font-mono text-zinc-500 uppercase block font-semibold">NEXT PROJECT</span>
                 <span className={`text-xs font-semibold max-w-[150px] truncate block transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-950'}`}>{nextProject.title}</span>
               </div>
               <ChevronRight className="w-4 h-4 text-zinc-500 group-hover:translate-x-0.5 transition-transform" />

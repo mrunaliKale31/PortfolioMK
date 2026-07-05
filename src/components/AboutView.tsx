@@ -4,7 +4,8 @@ import { CERTIFICATIONS } from '../data';
 import { 
   Award, BookOpen, Compass, ShieldAlert, CheckCircle, 
   ChevronRight, Calendar, MapPin, Sparkles, BookMarked,
-  Layers, Hammer, Cpu, Terminal, X, ExternalLink
+  Layers, Hammer, Cpu, Terminal, X, ExternalLink, Users2, Star,
+  Code2, Layout, Database
 } from 'lucide-react';
 
 interface AboutViewProps {
@@ -15,85 +16,180 @@ interface AboutViewProps {
 export default function AboutView({ onNavigate, isDarkMode }: AboutViewProps) {
   const [selectedCert, setSelectedCert] = useState<Certification | null>(null);
 
-  const skillsList = [
-    { name: 'Core Web Development', level: 95, desc: 'Optimizing render times, responsive grid configurations, and client state management setups.' },
-    { name: 'Frontend Engineering', level: 92, desc: 'Modern React patterns, hooks, and clean components with Lucide-react and motion/react animations.' },
-    { name: 'Full-Stack Integration', level: 90, desc: 'Constructing Express APIs, database queries, routing logic, and backend security flows.' },
-    { name: 'Algorithm Design', level: 88, desc: 'Proficient in data structures, time complexity analysis, and algorithmic optimization.' }
-  ];
-
-  const currentLearnings = [
-    { subject: 'Rust systems programming', status: 'In Progress', progress: 72 },
-    { subject: 'Distributed Vector databases (Pinecone, pgvector)', status: 'In Progress', progress: 55 },
-    { subject: 'Wasm compiling pipelines', status: 'Completed', progress: 100 }
-  ];
-
-  const coreValues = [
-    { title: 'Absolute Pixel Fidelity', desc: 'No approximations. Borders, spacing, and font sizes must conform strictly to elegant layout guidelines.' },
-    { title: 'Responsive Resilience', desc: 'Interfaces must adapt beautifully on ultra-wide screens as well as small touch viewports.' },
-    { title: 'Zero Unrequested Over-engineering', desc: 'Complexity is a failure metric. We build standard, robust, performant components with pure focus.' }
-  ];
-
   return (
     <div className="space-y-16 animate-fadeIn">
       
       {/* 1. PERSONAL INTRODUCTION */}
-      <section className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-4">
-          <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-semibold">01 • Personal Engine</span>
-          <h2 className={`text-3xl font-display font-bold tracking-tight transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>The developer behind the layouts.</h2>
-          <p className={`text-xs leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>
-            I am Mrunali Kale, a Computer Science student and full-stack developer. I view the web browser not merely as a presentation viewport, but as a fully capable native runtime environment. 
-          </p>
-          <p className={`text-xs leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>
-            My engineering practice centers on building clean application flows. Rather than pasting together heavy, unvetted scripts, I construct core state structures, layout transitions, and clean API connectors from primitive foundations.
-          </p>
-        </div>
-
-        {/* Bento values highlight */}
-        <div className={`border rounded-xl p-5 space-y-4 transition-all duration-300 ${
-          isDarkMode ? 'bg-zinc-950 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
-        }`}>
-          <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-semibold">Primary Indicators</span>
-          <div className={`space-y-3.5 text-xs font-sans transition-colors ${isDarkMode ? 'text-zinc-300' : 'text-zinc-700'}`}>
-            <div className="flex items-center gap-2">
-              <span className={`w-1.5 h-1.5 rounded-full transition-colors ${isDarkMode ? 'bg-white' : 'bg-zinc-950'}`} />
-              <span>Based in: SF Bay Area, CA (Student)</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className={`w-1.5 h-1.5 rounded-full transition-colors ${isDarkMode ? 'bg-white' : 'bg-zinc-950'}`} />
-              <span>Specialty: Custom Full-Stack Web Apps</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className={`w-1.5 h-1.5 rounded-full transition-colors ${isDarkMode ? 'bg-white' : 'bg-zinc-950'}`} />
-              <span>Design Influence: Swiss typographic grids</span>
-            </div>
-          </div>
-        </div>
+      <section className="space-y-4">
+        <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-semibold">01 • Personal Engine</span>
+        <h2 className={`text-3xl font-display font-bold tracking-tight transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>The developer behind the layouts.</h2>
+        <p className={`text-xs leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>
+          I'm Mrunali Kale, an Information Technology student and aspiring Full-Stack Developer with a passion for building modern, user-focused web applications.
+        </p>
+        <p className={`text-xs leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>
+          To me, web development is where creativity meets problem-solving. I enjoy transforming ideas into clean, responsive, and intuitive digital experiences while writing code that is maintainable, scalable, accessible, and efficient.
+        </p>
+        <p className={`text-xs leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>
+          I'm constantly learning new technologies, improving my development skills, and taking on projects that challenge me to grow as both a developer and a designer. My goal is to create software that not only works well but also provides a seamless experience for the people who use it.
+        </p>
       </section>
 
-      {/* 2. DYNAMIC SKILLS ASSESSMENT */}
+      {/* 2. TECHNICAL SKILLS */}
       <section className="space-y-6">
         <div className={`border-b pb-3 transition-colors duration-300 ${isDarkMode ? 'border-zinc-900' : 'border-zinc-200'}`}>
-          <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-semibold">02 • Capability Metrics</span>
-          <h3 className={`text-lg font-semibold tracking-tight transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Core Competencies & Capabilities</h3>
+          <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-semibold">02 • Tech Stack</span>
+          <h3 className={`text-lg font-semibold tracking-tight transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Technical Skills & Capabilities</h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {skillsList.map((skill) => (
-            <div key={skill.name} className={`p-5 border rounded-xl space-y-3 transition-all duration-300 ${
-              isDarkMode ? 'bg-zinc-950/60 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
-            }`}>
-              <div className="flex justify-between items-center">
-                <span className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-800'}`}>{skill.name}</span>
-                <span className="font-mono text-[10px] text-zinc-500">{skill.level}% Academic Proficiency</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          
+          {/* Programming Languages */}
+          <div className={`p-5 border rounded-xl space-y-3 transition-all duration-300 ${
+            isDarkMode ? 'bg-zinc-950/60 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
+          }`}>
+            <div className="flex items-center gap-2">
+              <div className={`p-1.5 border rounded-md ${isDarkMode ? 'bg-zinc-900 border-zinc-800' : 'bg-zinc-50 border-zinc-200'}`}>
+                <Code2 className="w-4 h-4 text-blue-400" />
               </div>
-              <div className={`h-1 w-full rounded-full overflow-hidden transition-colors ${isDarkMode ? 'bg-zinc-900' : 'bg-zinc-100'}`}>
-                <div className={`h-full rounded-full transition-all duration-1000 ${isDarkMode ? 'bg-white' : 'bg-zinc-800'}`} style={{ width: `${skill.level}%` }} />
-              </div>
-              <p className={`text-[11px] leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>{skill.desc}</p>
+              <span className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-800'}`}>Programming Languages</span>
             </div>
-          ))}
+            <div className="flex flex-wrap gap-1.5">
+              {['Python', 'Java', 'JavaScript', 'TypeScript'].map((skill) => (
+                <span key={skill} className={`text-[10px] font-mono px-2 py-1 rounded border transition-colors ${
+                  isDarkMode ? 'bg-zinc-900 text-zinc-400 border-zinc-850' : 'bg-zinc-50 text-zinc-650 border-zinc-200'
+                }`}>
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Web & Full-Stack */}
+          <div className={`p-5 border rounded-xl space-y-3 transition-all duration-300 ${
+            isDarkMode ? 'bg-zinc-950/60 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
+          }`}>
+            <div className="flex items-center gap-2">
+              <div className={`p-1.5 border rounded-md ${isDarkMode ? 'bg-zinc-900 border-zinc-800' : 'bg-zinc-50 border-zinc-200'}`}>
+                <Layout className="w-4 h-4 text-indigo-400" />
+              </div>
+              <span className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-800'}`}>Web & Full-Stack</span>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {['HTML', 'CSS', 'React', 'Node.js'].map((skill) => (
+                <span key={skill} className={`text-[10px] font-mono px-2 py-1 rounded border transition-colors ${
+                  isDarkMode ? 'bg-zinc-900 text-zinc-400 border-zinc-850' : 'bg-zinc-50 text-zinc-650 border-zinc-200'
+                }`}>
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Databases */}
+          <div className={`p-5 border rounded-xl space-y-3 transition-all duration-300 ${
+            isDarkMode ? 'bg-zinc-950/60 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
+          }`}>
+            <div className="flex items-center gap-2">
+              <div className={`p-1.5 border rounded-md ${isDarkMode ? 'bg-zinc-900 border-zinc-800' : 'bg-zinc-50 border-zinc-200'}`}>
+                <Database className="w-4 h-4 text-emerald-400" />
+              </div>
+              <span className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-800'}`}>Databases</span>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {['MySQL', 'MongoDB'].map((skill) => (
+                <span key={skill} className={`text-[10px] font-mono px-2 py-1 rounded border transition-colors ${
+                  isDarkMode ? 'bg-zinc-900 text-zinc-400 border-zinc-850' : 'bg-zinc-50 text-zinc-650 border-zinc-200'
+                }`}>
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Testing & Automation */}
+          <div className={`p-5 border rounded-xl space-y-3 transition-all duration-300 ${
+            isDarkMode ? 'bg-zinc-950/60 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
+          }`}>
+            <div className="flex items-center gap-2">
+              <div className={`p-1.5 border rounded-md ${isDarkMode ? 'bg-zinc-900 border-zinc-800' : 'bg-zinc-50 border-zinc-200'}`}>
+                <CheckCircle className="w-4 h-4 text-green-400" />
+              </div>
+              <span className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-800'}`}>Testing & Automation</span>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {['Selenium', 'JUnit', 'Jest', 'Postman'].map((skill) => (
+                <span key={skill} className={`text-[10px] font-mono px-2 py-1 rounded border transition-colors ${
+                  isDarkMode ? 'bg-zinc-900 text-zinc-400 border-zinc-850' : 'bg-zinc-50 text-zinc-650 border-zinc-200'
+                }`}>
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Cybersecurity */}
+          <div className={`p-5 border rounded-xl space-y-3 transition-all duration-300 ${
+            isDarkMode ? 'bg-zinc-950/60 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
+          }`}>
+            <div className="flex items-center gap-2">
+              <div className={`p-1.5 border rounded-md ${isDarkMode ? 'bg-zinc-900 border-zinc-800' : 'bg-zinc-50 border-zinc-200'}`}>
+                <ShieldAlert className="w-4 h-4 text-red-400" />
+              </div>
+              <span className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-800'}`}>Cybersecurity</span>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {['Burp Suite', 'MobSF', 'Cryptography'].map((skill) => (
+                <span key={skill} className={`text-[10px] font-mono px-2 py-1 rounded border transition-colors ${
+                  isDarkMode ? 'bg-zinc-900 text-zinc-400 border-zinc-850' : 'bg-zinc-50 text-zinc-650 border-zinc-200'
+                }`}>
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Systems & DevOps */}
+          <div className={`p-5 border rounded-xl space-y-3 transition-all duration-300 ${
+            isDarkMode ? 'bg-zinc-950/60 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
+          }`}>
+            <div className="flex items-center gap-2">
+              <div className={`p-1.5 border rounded-md ${isDarkMode ? 'bg-zinc-900 border-zinc-800' : 'bg-zinc-50 border-zinc-200'}`}>
+                <Terminal className="w-4 h-4 text-orange-400" />
+              </div>
+              <span className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-800'}`}>Systems & DevOps</span>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {['Linux', 'Docker', 'Git/GitHub', 'Jenkins'].map((skill) => (
+                <span key={skill} className={`text-[10px] font-mono px-2 py-1 rounded border transition-colors ${
+                  isDarkMode ? 'bg-zinc-900 text-zinc-400 border-zinc-850' : 'bg-zinc-50 text-zinc-650 border-zinc-200'
+                }`}>
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Cloud & Emerging Tech */}
+          <div className={`p-5 border rounded-xl space-y-3 transition-all duration-300 md:col-span-2 lg:col-span-3 ${
+            isDarkMode ? 'bg-zinc-950/60 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
+          }`}>
+            <div className="flex items-center gap-2">
+              <div className={`p-1.5 border rounded-md ${isDarkMode ? 'bg-zinc-900 border-zinc-800' : 'bg-zinc-50 border-zinc-200'}`}>
+                <Sparkles className="w-4 h-4 text-purple-400" />
+              </div>
+              <span className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-800'}`}>Cloud & Emerging Technologies</span>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {['MCP Server Development', 'Prompt Engineering', 'API Integration', 'Shell Scripting'].map((skill) => (
+                <span key={skill} className={`text-[10px] font-mono px-2 py-1 rounded border transition-colors ${
+                  isDarkMode ? 'bg-zinc-900 text-zinc-400 border-zinc-850' : 'bg-zinc-50 text-zinc-650 border-zinc-200'
+                }`}>
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -167,8 +263,8 @@ export default function AboutView({ onNavigate, isDarkMode }: AboutViewProps) {
       {/* 4. EXPERIENCE TIMELINE */}
       <section className="space-y-6">
         <div className={`border-b pb-3 transition-colors duration-300 ${isDarkMode ? 'border-zinc-900' : 'border-zinc-200'}`}>
-          <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-semibold">04 • Student Journeys</span>
-          <h3 className={`text-lg font-semibold tracking-tight transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Academic & Project History</h3>
+          <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-semibold">04 • Academic Journey</span>
+          <h3 className={`text-lg font-semibold tracking-tight transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Education</h3>
         </div>
 
         <div className={`space-y-6 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 transition-all ${
@@ -180,12 +276,17 @@ export default function AboutView({ onNavigate, isDarkMode }: AboutViewProps) {
               isDarkMode ? 'bg-white border-zinc-950' : 'bg-zinc-900 border-white'
             }`} />
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <h4 className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Computer Science Teaching Assistant • Department of Computer Science</h4>
-              <span className="text-[10px] font-mono text-zinc-500">2024 - Present • San Francisco Bay Area, CA</span>
+              <h4 className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>B.Tech in Information Technology • MIT Art, Design & Technology University</h4>
+              <span className="text-[10px] font-mono text-zinc-500">2023 - 2027 • Loni Kalbhor, Pune</span>
             </div>
             <p className={`text-xs mt-1 leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>
-              Support over 120 undergraduates in object-oriented programming, data structures, and algorithms. Built automated testing scripts and autograders to streamline assignment valuations.
+              Currently pursuing a Bachelor's degree in Information Technology, building a strong foundation in software development, databases, operating systems, web technologies, and software engineering. Actively applying classroom knowledge through real-world projects and internships.
             </p>
+            <div className={`flex items-center gap-4 mt-2 text-[10px] font-mono transition-colors ${isDarkMode ? 'text-zinc-500' : 'text-zinc-600'}`}>
+              <span>GPA: 8.68 / 10</span>
+              <span>•</span>
+              <span>No Backlog History</span>
+            </div>
           </div>
 
           <div className="relative pl-8 group">
@@ -193,12 +294,15 @@ export default function AboutView({ onNavigate, isDarkMode }: AboutViewProps) {
               isDarkMode ? 'bg-zinc-800' : 'bg-zinc-300'
             }`} />
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <h4 className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Full-Stack Software Engineering Intern • Student Technology Center</h4>
-              <span className="text-[10px] font-mono text-zinc-500">2023 - 2024 • San Francisco Bay Area, CA</span>
+              <h4 className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Senior Secondary (Class XII) • The Lexicon International School</h4>
+              <span className="text-[10px] font-mono text-zinc-500">2022 - 2023 • Wagholi, Pune</span>
             </div>
             <p className={`text-xs mt-1 leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>
-              Constructed responsive campus portal dashboards, designed database schemas in Postgres, and optimized API payloads, enhancing student navigation speed and system reliability.
+              Completed Higher Secondary education in the Science stream, building a strong foundation in Mathematics, Physics, Chemistry, and Computer Science.
             </p>
+            <div className={`flex items-center gap-4 mt-2 text-[10px] font-mono transition-colors ${isDarkMode ? 'text-zinc-500' : 'text-zinc-600'}`}>
+              <span>Percentage: 76%</span>
+            </div>
           </div>
 
           <div className="relative pl-8 group">
@@ -206,72 +310,88 @@ export default function AboutView({ onNavigate, isDarkMode }: AboutViewProps) {
               isDarkMode ? 'bg-zinc-800' : 'bg-zinc-300'
             }`} />
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <h4 className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Lead Developer & Club Officer • Student Coding Club</h4>
-              <span className="text-[10px] font-mono text-zinc-500">2022 - 2023 • San Francisco Bay Area, CA</span>
+              <h4 className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Secondary Education (Class X) • The Lexicon International School</h4>
+              <span className="text-[10px] font-mono text-zinc-500">2020 - 2021 • Kalyani Nagar, Pune</span>
             </div>
             <p className={`text-xs mt-1 leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>
-              Led collegiate developer teams to construct open-source utility tools. Conducted weekly student workshops on modern React patterns, styling, and standard web structures.
+              Completed Secondary School education with consistent academic excellence and a strong foundation across core subjects.
             </p>
+            <div className={`flex items-center gap-4 mt-2 text-[10px] font-mono transition-colors ${isDarkMode ? 'text-zinc-500' : 'text-zinc-600'}`}>
+              <span>Percentage: 94%</span>
+            </div>
           </div>
 
         </div>
       </section>
 
-      {/* 5. PERSONAL VALUES & BEYOND CODING */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        {/* Core Values */}
-        <div className={`p-6 border rounded-xl space-y-4 transition-all duration-300 ${
-          isDarkMode ? 'bg-zinc-950 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
-        }`}>
-          <h4 className={`text-xs font-mono uppercase tracking-widest font-semibold flex items-center gap-1.5 ${
-            isDarkMode ? 'text-zinc-400' : 'text-zinc-700'
+      {/* 5. ACTIVITIES & ACHIEVEMENTS */}
+      <section className="space-y-6">
+        <div className={`border-b pb-3 transition-colors duration-300 ${isDarkMode ? 'border-zinc-900' : 'border-zinc-200'}`}>
+          <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-semibold">05 • Beyond Academics</span>
+          <h3 className={`text-lg font-semibold tracking-tight transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Activities & Achievements</h3>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          {/* Leadership & Extracurricular */}
+          <div className={`border p-5 rounded-xl space-y-4 transition-all duration-300 ${
+            isDarkMode ? 'bg-zinc-950 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
           }`}>
-            <Layers className="w-4 h-4" /> Core Learning & Coding Values
-          </h4>
-          <div className="space-y-4">
-            {coreValues.map((val) => (
-              <div key={val.title} className="space-y-1">
+            <h4 className={`text-xs font-mono uppercase tracking-widest font-semibold flex items-center gap-1.5 ${
+              isDarkMode ? 'text-zinc-400' : 'text-zinc-700'
+            }`}>
+              <Users2 className="w-4 h-4" /> Leadership & Extracurricular
+            </h4>
+            <div className="space-y-4">
+              <div className="space-y-1">
                 <h5 className={`text-xs font-semibold flex items-center gap-2 transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-800'}`}>
-                  <span className={`w-1 h-1 rounded-full inline-block ${isDarkMode ? 'bg-white' : 'bg-zinc-800'}`} /> {val.title}
+                  <span className={`w-1 h-1 rounded-full inline-block ${isDarkMode ? 'bg-white' : 'bg-zinc-800'}`} /> General Secretary – FOSSphere Club
                 </h5>
-                <p className={`text-[11px] leading-relaxed pl-3 transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>{val.desc}</p>
+                <p className={`text-[11px] leading-relaxed pl-3 transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>
+                  Organize open-source focused events and lead initiatives promoting FOSS adoption.
+                </p>
               </div>
-            ))}
+              <div className="space-y-1">
+                <h5 className={`text-xs font-semibold flex items-center gap-2 transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-800'}`}>
+                  <span className={`w-1 h-1 rounded-full inline-block ${isDarkMode ? 'bg-white' : 'bg-zinc-800'}`} /> Content Team Lead – IMPACT Student Council
+                </h5>
+                <p className={`text-[11px] leading-relaxed pl-3 transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>
+                  Managed content planning and organization for student-led initiatives.
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
 
-        {/* Current Learnings & Beyond Coding */}
-        <div className={`p-6 border rounded-xl space-y-4 transition-all duration-300 ${
-          isDarkMode ? 'bg-zinc-950 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
-        }`}>
-          <h4 className={`text-xs font-mono uppercase tracking-widest font-semibold flex items-center gap-1.5 ${
-            isDarkMode ? 'text-zinc-400' : 'text-zinc-700'
+          {/* Competition & Achievements */}
+          <div className={`border p-5 rounded-xl space-y-4 transition-all duration-300 ${
+            isDarkMode ? 'bg-zinc-950 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
           }`}>
-            <BookMarked className="w-4 h-4" /> Active R&D Sandbox
-          </h4>
-          <div className={`space-y-3.5 text-xs transition-colors ${isDarkMode ? 'text-zinc-300' : 'text-zinc-700'}`}>
-            {currentLearnings.map((learn) => (
-              <div key={learn.subject} className="space-y-1.5">
-                <div className="flex justify-between items-center text-[11px]">
-                  <span className={`transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-800 font-semibold'}`}>{learn.subject}</span>
-                  <span className="text-[10px] font-mono text-zinc-500">{learn.progress}%</span>
-                </div>
-                <div className={`h-1.5 w-full rounded-full overflow-hidden ${isDarkMode ? 'bg-zinc-900' : 'bg-zinc-100'}`}>
-                  <div className={`h-full rounded-full ${isDarkMode ? 'bg-zinc-400' : 'bg-zinc-800'}`} style={{ width: `${learn.progress}%` }} />
-                </div>
+            <h4 className={`text-xs font-mono uppercase tracking-widest font-semibold flex items-center gap-1.5 ${
+              isDarkMode ? 'text-zinc-400' : 'text-zinc-700'
+            }`}>
+              <Star className="w-4 h-4" /> Competitions & Recognition
+            </h4>
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <h5 className={`text-xs font-semibold flex items-center gap-2 transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-800'}`}>
+                  <span className={`w-1 h-1 rounded-full inline-block ${isDarkMode ? 'bg-white' : 'bg-zinc-800'}`} /> AMD SlingShot Promptathon
+                </h5>
+                <p className={`text-[11px] leading-relaxed pl-3 transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>
+                  Ranked 49 out of 540 participants in a competitive AI prompt engineering challenge.
+                </p>
               </div>
-            ))}
+              <div className="space-y-1">
+                <h5 className={`text-xs font-semibold flex items-center gap-2 transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-800'}`}>
+                  <span className={`w-1 h-1 rounded-full inline-block ${isDarkMode ? 'bg-white' : 'bg-zinc-800'}`} /> FOSS FEST National Hackathon
+                </h5>
+                <p className={`text-[11px] leading-relaxed pl-3 transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>
+                  Participated in national-level open-source hackathon organized by OpenSource Science B.V.
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className={`border-t pt-4 space-y-2 ${isDarkMode ? 'border-zinc-900' : 'border-zinc-200'}`}>
-            <h5 className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider font-bold">Beyond the Terminal</h5>
-            <p className={`text-[11px] leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>
-              When my screens are dark, I am assembling custom mechanical keyboards, capturing architectural layouts in my sketchbook, and reading textbooks on typography and Swiss grid systems.
-            </p>
-          </div>
         </div>
-
       </section>
 
       {/* CERTIFICATION DETAIL MODAL */}

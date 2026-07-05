@@ -23,7 +23,7 @@ export default function WorkView({ isDarkMode }: WorkViewProps) {
     role: 'Lead Architect', // Lead, Advisor, Solo Developer
     description: '',
     timeline: '1-3 Months', // <1 Month, 1-3 Months, 3-6 Months, Long-term
-    budget: '$10k - $25k', // <$10k, $10k-$25k, $25k-$50k, $50k+
+    budget: 'Student Project', // Student Project, Small Freelance, Collaboration, Open Source
     referenceLinks: '',
     preferredContact: 'Email', // Email, Video Call, Slack
     fileName: '' // Simulated document upload filename
@@ -58,15 +58,15 @@ export default function WorkView({ isDarkMode }: WorkViewProps) {
   };
 
   const services = [
-    { title: 'Full-Stack Construction', desc: 'Crafting fully unified end-to-end applications from scratch, deploying optimized structures & APIs.' },
-    { title: 'Performance Optimization', desc: 'Diagnosing heavy browser render loops, resolving memory leaks, and tuning state updates.' },
-    { title: 'Interactive Interface Design', desc: 'Designing custom responsive visual layouts that mirror modern Notion and Linear standards.' }
+    { title: 'Full-Stack Engineering', desc: 'Building modern, scalable web applications with React, TypeScript, Node.js, Python, and RESTful APIs.' },
+    { title: 'AI, Machine Learning & Automation', desc: 'Developing intelligent systems using NLP, machine learning, and automation to solve practical problems.' },
+    { title: 'Cybersecurity & Systems Development', desc: 'Designing secure applications, experimenting with web security, contributing to open source, and building modular backend architectures.' }
   ];
 
   const processSteps = [
-    { num: '01', title: 'Deep Discovery', desc: 'We map raw project requirements, user interfaces, and technical parameters.' },
-    { num: '02', title: 'System Blueprinting', desc: 'Drafting state structures, code module layouts, and typography grids.' },
-    { num: '03', title: 'Incremental Delivery', desc: 'Bi-weekly progressive updates with clean lints & live simulation links.' }
+    { num: '01', title: 'Understanding Requirements', desc: 'Learning about project goals, user needs, and technical requirements together.' },
+    { num: '02', title: 'Planning & Design', desc: 'Sketching component structures, planning state management, and designing layouts.' },
+    { num: '03', title: 'Building & Learning', desc: 'Iterative development with regular check-ins, code reviews, and continuous improvement.' }
   ];
 
   return (
@@ -75,10 +75,10 @@ export default function WorkView({ isDarkMode }: WorkViewProps) {
       {/* 1. INTRODUCTION HERO */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="md:col-span-2 space-y-4">
-          <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-semibold">03 • Collaborative Lab</span>
-          <h2 className={`text-3xl font-display font-bold tracking-tight transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Constructing software together.</h2>
+          <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-semibold">Collaborate</span>
+          <h2 className={`text-3xl font-display font-bold tracking-tight transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Building projects together.</h2>
           <p className={`text-xs leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>
-            I partner with forward-thinking developers, student peers, and project advisors to turn ideas into resilient software architectures. I bring clean coding discipline, Swiss design aesthetics, and structured progress timelines.
+            I partner with student peers, fellow developers, and project teams to build software together. I bring coding discipline, design aesthetics, and a commitment to learning and growth.
           </p>
         </div>
 
@@ -86,7 +86,7 @@ export default function WorkView({ isDarkMode }: WorkViewProps) {
           isDarkMode ? 'bg-zinc-950 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
         }`}>
           <div>
-            <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-wider block font-semibold">LAB BANDWIDTH</span>
+            <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-wider block font-semibold">Current Status</span>
             <div className={`text-xs font-semibold mt-1 flex items-center gap-1.5 transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>
               <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
               Available for Student Partnerships
@@ -141,7 +141,7 @@ export default function WorkView({ isDarkMode }: WorkViewProps) {
       {/* 3. MULTI-STEP PROJECT INQUIRY FORM */}
       <section className="space-y-6">
         <div className="space-y-1 text-center">
-          <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Inquiry Pipeline</span>
+          <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Inquiry Form</span>
           <h3 className={`text-lg font-bold tracking-tight transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Initiate a Project Engagement</h3>
           <p className={`text-xs max-w-lg mx-auto leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>
             Specify your product criteria using this structured multi-step wizard. I will analyze your parameters and follow up with a detailed execution proposal.
@@ -241,26 +241,25 @@ export default function WorkView({ isDarkMode }: WorkViewProps) {
 
                     <div className="space-y-1.5">
                       <label className={`text-[10px] font-mono uppercase block font-semibold ${isDarkMode ? 'text-zinc-400' : 'text-zinc-500'}`}>Organization Structure</label>
-                      <div className="grid grid-cols-3 gap-3">
-                        {['Startup', 'Enterprise', 'Design Agency'].map((type) => (
-                          <button
-                            key={type}
-                            type="button"
-                            onClick={() => handleInputChange('orgType', type)}
-                            className={`p-3 text-center border rounded-lg transition-all text-xs cursor-pointer ${
-                              formData.orgType === type 
-                                ? isDarkMode 
-                                  ? 'bg-white text-zinc-950 border-white font-semibold' 
-                                  : 'bg-zinc-950 text-white border-zinc-950 font-semibold shadow-xs' 
-                                : isDarkMode 
-                                  ? 'bg-zinc-900 text-zinc-400 border-zinc-850 hover:border-zinc-700' 
-                                  : 'bg-zinc-50 text-zinc-650 border-zinc-200 hover:bg-zinc-100 hover:text-zinc-950 shadow-2xs'
-                            }`}
-                          >
-                            {type}
-                          </button>
-                        ))}
-                      </div>
+                      <input
+                        list="orgTypes"
+                        value={formData.orgType}
+                        onChange={(e) => handleInputChange('orgType', e.target.value)}
+                        placeholder="Select or type your organization type"
+                        className={`w-full rounded-lg py-2 px-4 text-xs outline-hidden transition-all ${
+                          isDarkMode 
+                            ? 'bg-zinc-900 border border-zinc-850 focus:border-zinc-700 text-white placeholder-zinc-500' 
+                            : 'bg-zinc-50 border border-zinc-250 focus:border-zinc-400 text-zinc-900 placeholder-zinc-450'
+                        }`}
+                      />
+                      <datalist id="orgTypes">
+                        <option value="Startup" />
+                        <option value="Enterprise" />
+                        <option value="Design Agency" />
+                        <option value="Educational Institution" />
+                        <option value="Non-profit" />
+                        <option value="Freelancer" />
+                      </datalist>
                     </div>
                   </div>
                 )}
@@ -272,50 +271,47 @@ export default function WorkView({ isDarkMode }: WorkViewProps) {
 
                     <div className="space-y-1.5">
                       <label className={`text-[10px] font-mono uppercase block font-semibold ${isDarkMode ? 'text-zinc-400' : 'text-zinc-500'}`}>Required Specialization</label>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        {['Full-Stack Web App', 'Frontend Refactor', 'Architectural Consulting'].map((type) => (
-                          <button
-                            key={type}
-                            type="button"
-                            onClick={() => handleInputChange('projectType', type)}
-                            className={`p-3 text-left border rounded-lg transition-all text-xs cursor-pointer ${
-                              formData.projectType === type 
-                                ? isDarkMode 
-                                  ? 'bg-white text-zinc-950 border-white font-semibold' 
-                                  : 'bg-zinc-950 text-white border-zinc-950 font-semibold shadow-xs' 
-                                : isDarkMode 
-                                  ? 'bg-zinc-900 text-zinc-400 border-zinc-850 hover:border-zinc-700' 
-                                  : 'bg-zinc-50 text-zinc-650 border-zinc-200 hover:bg-zinc-100 hover:text-zinc-950 shadow-2xs'
-                            }`}
-                          >
-                            {type}
-                          </button>
-                        ))}
-                      </div>
+                      <input
+                        list="projectTypes"
+                        value={formData.projectType}
+                        onChange={(e) => handleInputChange('projectType', e.target.value)}
+                        placeholder="Select or type your project specialization"
+                        className={`w-full rounded-lg py-2 px-4 text-xs outline-hidden transition-all ${
+                          isDarkMode 
+                            ? 'bg-zinc-900 border border-zinc-850 focus:border-zinc-700 text-white placeholder-zinc-500' 
+                            : 'bg-zinc-50 border border-zinc-250 focus:border-zinc-400 text-zinc-900 placeholder-zinc-450'
+                        }`}
+                      />
+                      <datalist id="projectTypes">
+                        <option value="Full-Stack Web App" />
+                        <option value="Frontend Refactor" />
+                        <option value="Architectural Consulting" />
+                        <option value="API Development" />
+                        <option value="Machine Learning Integration" />
+                        <option value="Security Audit" />
+                      </datalist>
                     </div>
 
                     <div className="space-y-1.5">
                       <label className={`text-[10px] font-mono uppercase block font-semibold ${isDarkMode ? 'text-zinc-400' : 'text-zinc-500'}`}>Estimated Project Scale</label>
-                      <div className="grid grid-cols-3 gap-3">
-                        {['Small Prototype', 'Medium Scale', 'Enterprise-grade'].map((size) => (
-                          <button
-                            key={size}
-                            type="button"
-                            onClick={() => handleInputChange('projectSize', size)}
-                            className={`p-3 text-center border rounded-lg transition-all text-xs cursor-pointer ${
-                              formData.projectSize === size 
-                                ? isDarkMode 
-                                  ? 'bg-white text-zinc-950 border-white font-semibold' 
-                                  : 'bg-zinc-950 text-white border-zinc-950 font-semibold shadow-xs' 
-                                : isDarkMode 
-                                  ? 'bg-zinc-900 text-zinc-400 border-zinc-850 hover:border-zinc-700' 
-                                  : 'bg-zinc-50 text-zinc-650 border-zinc-200 hover:bg-zinc-100 hover:text-zinc-950 shadow-2xs'
-                            }`}
-                          >
-                            {size}
-                          </button>
-                        ))}
-                      </div>
+                      <input
+                        list="projectSizes"
+                        value={formData.projectSize}
+                        onChange={(e) => handleInputChange('projectSize', e.target.value)}
+                        placeholder="Select or type your project scale"
+                        className={`w-full rounded-lg py-2 px-4 text-xs outline-hidden transition-all ${
+                          isDarkMode 
+                            ? 'bg-zinc-900 border border-zinc-850 focus:border-zinc-700 text-white placeholder-zinc-500' 
+                            : 'bg-zinc-50 border border-zinc-250 focus:border-zinc-400 text-zinc-900 placeholder-zinc-450'
+                        }`}
+                      />
+                      <datalist id="projectSizes">
+                        <option value="Small Prototype" />
+                        <option value="Medium Scale" />
+                        <option value="Enterprise-grade" />
+                        <option value="MVP Development" />
+                        <option value="Feature Enhancement" />
+                      </datalist>
                     </div>
                   </div>
                 )}
@@ -323,54 +319,50 @@ export default function WorkView({ isDarkMode }: WorkViewProps) {
                 {/* STEP 3: Role, Expected Team & Budget */}
                 {step === 3 && (
                   <div className="space-y-4 animate-fadeIn">
-                    <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-widest font-semibold">Step 3 • Engagement Roles & Budget</h4>
+                    <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-widest font-semibold">Step 3 • Project Details & Type</h4>
 
                     <div className="space-y-1.5">
                       <label className={`text-[10px] font-mono uppercase block font-semibold ${isDarkMode ? 'text-zinc-400' : 'text-zinc-500'}`}>Expected Engineering Team Size</label>
-                      <div className="grid grid-cols-3 gap-3">
-                        {['Solo Builder', '1-3 Engineers', '5+ Core Staff'].map((tSize) => (
-                          <button
-                            key={tSize}
-                            type="button"
-                            onClick={() => handleInputChange('teamSize', tSize)}
-                            className={`p-3 text-center border rounded-lg transition-all text-xs cursor-pointer ${
-                              formData.teamSize === tSize 
-                                ? isDarkMode 
-                                  ? 'bg-white text-zinc-950 border-white font-semibold' 
-                                  : 'bg-zinc-950 text-white border-zinc-950 font-semibold shadow-xs' 
-                                : isDarkMode 
-                                  ? 'bg-zinc-900 text-zinc-400 border-zinc-850 hover:border-zinc-700' 
-                                  : 'bg-zinc-50 text-zinc-650 border-zinc-200 hover:bg-zinc-100 hover:text-zinc-950 shadow-2xs'
-                            }`}
-                          >
-                            {tSize}
-                          </button>
-                        ))}
-                      </div>
+                      <input
+                        list="teamSizes"
+                        value={formData.teamSize}
+                        onChange={(e) => handleInputChange('teamSize', e.target.value)}
+                        placeholder="Select or type your team size"
+                        className={`w-full rounded-lg py-2 px-4 text-xs outline-hidden transition-all ${
+                          isDarkMode 
+                            ? 'bg-zinc-900 border border-zinc-850 focus:border-zinc-700 text-white placeholder-zinc-500' 
+                            : 'bg-zinc-50 border border-zinc-250 focus:border-zinc-400 text-zinc-900 placeholder-zinc-450'
+                        }`}
+                      />
+                      <datalist id="teamSizes">
+                        <option value="Solo Builder" />
+                        <option value="1-3 Engineers" />
+                        <option value="5+ Core Staff" />
+                        <option value="Small Team (3-5)" />
+                        <option value="Large Team (10+)" />
+                      </datalist>
                     </div>
 
                     <div className="space-y-1.5">
                       <label className={`text-[10px] font-mono uppercase block font-semibold ${isDarkMode ? 'text-zinc-400' : 'text-zinc-500'}`}>My Proposed Role</label>
-                      <div className="grid grid-cols-3 gap-3">
-                        {['Solo Developer', 'Lead Architect', 'Technical Advisor'].map((rl) => (
-                          <button
-                            key={rl}
-                            type="button"
-                            onClick={() => handleInputChange('role', rl)}
-                            className={`p-3 text-center border rounded-lg transition-all text-xs cursor-pointer ${
-                              formData.role === rl 
-                                ? isDarkMode 
-                                  ? 'bg-white text-zinc-950 border-white font-semibold' 
-                                  : 'bg-zinc-950 text-white border-zinc-950 font-semibold shadow-xs' 
-                                : isDarkMode 
-                                  ? 'bg-zinc-900 text-zinc-400 border-zinc-850 hover:border-zinc-700' 
-                                  : 'bg-zinc-50 text-zinc-650 border-zinc-200 hover:bg-zinc-100 hover:text-zinc-950 shadow-2xs'
-                            }`}
-                          >
-                            {rl}
-                          </button>
-                        ))}
-                      </div>
+                      <input
+                        list="roles"
+                        value={formData.role}
+                        onChange={(e) => handleInputChange('role', e.target.value)}
+                        placeholder="Select or type your preferred role"
+                        className={`w-full rounded-lg py-2 px-4 text-xs outline-hidden transition-all ${
+                          isDarkMode 
+                            ? 'bg-zinc-900 border border-zinc-850 focus:border-zinc-700 text-white placeholder-zinc-500' 
+                            : 'bg-zinc-50 border border-zinc-250 focus:border-zinc-400 text-zinc-900 placeholder-zinc-450'
+                        }`}
+                      />
+                      <datalist id="roles">
+                        <option value="Solo Developer" />
+                        <option value="Lead Architect" />
+                        <option value="Technical Advisor" />
+                        <option value="Team Member" />
+                        <option value="Consultant" />
+                      </datalist>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -393,7 +385,7 @@ export default function WorkView({ isDarkMode }: WorkViewProps) {
                       </div>
 
                       <div className="space-y-1.5">
-                        <label className={`text-[10px] font-mono uppercase block font-semibold ${isDarkMode ? 'text-zinc-400' : 'text-zinc-500'}`}>Allocated Project Budget</label>
+                        <label className={`text-[10px] font-mono uppercase block font-semibold ${isDarkMode ? 'text-zinc-400' : 'text-zinc-500'}`}>Project Type</label>
                         <select
                           value={formData.budget}
                           onChange={(e) => handleInputChange('budget', e.target.value)}
@@ -403,10 +395,10 @@ export default function WorkView({ isDarkMode }: WorkViewProps) {
                               : 'bg-zinc-50 border border-zinc-250 text-zinc-900 focus:border-zinc-400'
                           }`}
                         >
-                          <option value="<$10k">Under $10,000</option>
-                          <option value="$10k - $25k">$10,000 - $25,000</option>
-                          <option value="$25k - $50k">$25,000 - $50,000</option>
-                          <option value="$50k+">$50,000+ Enterprise Tier</option>
+                          <option value="Student Project">Student/Learning Project</option>
+                          <option value="Small Freelance">Small Freelance Gig</option>
+                          <option value="Collaboration">Peer Collaboration</option>
+                          <option value="Open Source">Open Source Contribution</option>
                         </select>
                       </div>
                     </div>

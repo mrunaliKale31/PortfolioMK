@@ -30,10 +30,10 @@ export default function ProjectsView({ onSelectProject, isDarkMode }: ProjectsVi
       
       {/* Page Header */}
       <div className="space-y-3">
-        <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-semibold">02 • Student Project Registry</span>
-        <h2 className={`text-3xl font-display font-bold tracking-tight transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Academic & Personal Labs</h2>
+        <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-semibold">Project Registry</span>
+        <h2 className={`text-3xl font-display font-bold tracking-tight transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Academic & Personal Projects</h2>
         <p className={`text-sm max-w-2xl leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>
-          A comprehensive collection of functional student projects. Each card contains detailed notes outlining core development concepts, logic workflows, and system schemas.
+          Here are some projects I've built while learning and exploring web development. Each one represents a challenge I took on, a problem I solved, and a skill I developed along the way.
         </p>
       </div>
 

@@ -55,14 +55,14 @@ export default function HomeView({ onNavigate, onSelectProject, isDarkMode }: Ho
             <span className={`text-[10px] font-mono uppercase tracking-widest transition-colors duration-300 ${
               isDarkMode ? 'text-zinc-400' : 'text-zinc-600'
             }`}>
-              Mrunali Kale • Open to Summer Internships & Junior Roles
+              Mrunali Kale • Open to Internships, Freelancing & Junior Roles
             </span>
           </div>
 
           <h1 className={`text-4xl md:text-6xl font-display font-extrabold tracking-tight leading-[1.05] transition-colors duration-300 ${
             isDarkMode ? 'text-white' : 'text-zinc-900'
           }`}>
-            Engineering beautiful digital interfaces with absolute <span className={`underline decoration-wavy underline-offset-8 transition-colors ${isDarkMode ? 'text-zinc-300 decoration-zinc-800' : 'text-zinc-800 decoration-zinc-300'}`}>systems integrity</span>.
+            Welcome to my digital space where I showcase <span className={`underline decoration-wavy underline-offset-8 transition-colors ${isDarkMode ? 'text-zinc-300 decoration-zinc-800' : 'text-zinc-800 decoration-zinc-300'}`}>projects and ideas</span>.
           </h1>
 
           {/* Changing Subtitle Role */}
@@ -112,7 +112,7 @@ export default function HomeView({ onNavigate, onSelectProject, isDarkMode }: Ho
       </section>
 
       {/* 2. QUICK STATISTICS PANEL */}
-      <section className={`grid grid-cols-2 md:grid-cols-4 gap-4 border-y py-10 transition-colors duration-300 ${
+      <section className={`grid grid-cols-1 md:grid-cols-3 gap-4 border-y py-10 transition-colors duration-300 ${
         isDarkMode ? 'border-zinc-900' : 'border-zinc-200'
       }`}>
         <div className="space-y-1">
@@ -128,18 +128,13 @@ export default function HomeView({ onNavigate, onSelectProject, isDarkMode }: Ho
         <div className="space-y-1">
           <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-semibold">GitHub Commits</div>
           <div className={`text-2xl font-display font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>900+</div>
-          <p className="text-[10px] text-zinc-500 leading-normal">Active open-source contributions & homework registries</p>
-        </div>
-        <div className="space-y-1">
-          <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-semibold">Academic Honors</div>
-          <div className={`text-2xl font-display font-bold transition-colors ${isDarkMode ? 'text-emerald-400' : 'text-emerald-600'}`}>Dean's List</div>
-          <p className="text-[10px] text-zinc-500 leading-normal">Maintained academic high honors & collegiate benchmarks</p>
+          <p className="text-[10px] text-zinc-500 leading-normal">Active contributions and development</p>
         </div>
       </section>
 
       {/* 3. MINI ABOUT SECTION */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="md:col-span-1 space-y-3">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="space-y-3">
           <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-semibold">01 • Personal Philosophy</span>
           <h2 className={`text-xl font-display font-bold tracking-tight transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>The developer's role is to clear complexity.</h2>
           <p className={`text-xs leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>
@@ -159,16 +154,15 @@ export default function HomeView({ onNavigate, onSelectProject, isDarkMode }: Ho
         <div className={`border rounded-xl p-6 space-y-6 transition-all duration-300 ${
           isDarkMode ? 'bg-zinc-950/60 border-zinc-900' : 'bg-white border-zinc-200 shadow-xs'
         }`}>
-          <div className="flex items-center justify-between">
+          <div>
             <h3 className={`text-xs font-mono uppercase tracking-widest font-bold flex items-center gap-1.5 ${
               isDarkMode ? 'text-zinc-400' : 'text-zinc-700'
             }`}>
               <Cpu className="w-4 h-4 text-zinc-400" /> Active learning stack
             </h3>
-            <span className="text-[9px] font-mono text-zinc-500">Student Portfolio v4.5</span>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {techStack.map((tech) => (
               <div 
                 key={tech.name} 
@@ -178,13 +172,13 @@ export default function HomeView({ onNavigate, onSelectProject, isDarkMode }: Ho
                     : 'bg-zinc-50/50 border-zinc-200 hover:border-zinc-300 hover:bg-zinc-50 shadow-2xs'
                 }`}
               >
-                <div className={`p-1.5 border rounded-md transition-colors ${
+                <div className={`p-1.5 border rounded-md transition-colors flex-shrink-0 ${
                   isDarkMode ? 'bg-zinc-950 border-zinc-800' : 'bg-white border-zinc-200 shadow-2xs'
                 }`}>
                   {tech.icon}
                 </div>
-                <div>
-                  <div className={`text-xs font-semibold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>{tech.name}</div>
+                <div className="min-w-0">
+                  <div className={`text-xs font-semibold transition-colors truncate ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>{tech.name}</div>
                   <div className="text-[9px] font-mono text-zinc-500">{tech.category}</div>
                 </div>
               </div>
@@ -199,8 +193,7 @@ export default function HomeView({ onNavigate, onSelectProject, isDarkMode }: Ho
           isDarkMode ? 'border-zinc-900' : 'border-zinc-200'
         }`}>
           <div className="space-y-1">
-            <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-semibold">02 • Case Study Highlights</span>
-            <h3 className={`text-lg font-semibold tracking-tight transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Featured Student & Personal Labs</h3>
+            <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block font-semibold">02 • Project Highlights</span>
           </div>
           <button 
             onClick={() => onNavigate('projects')}

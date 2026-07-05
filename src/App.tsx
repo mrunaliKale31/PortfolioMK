@@ -71,9 +71,6 @@ export default function App() {
               Mrunali Kale
               <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
             </h1>
-            <p className={`text-[9px] font-mono tracking-wide uppercase transition-colors duration-300 ${
-              isDarkMode ? 'text-zinc-500' : 'text-zinc-500'
-            }`}>Student & Full-Stack Developer</p>
           </div>
         </div>
 
@@ -245,31 +242,53 @@ export default function App() {
       {/* FOOTER */}
       <footer className={`relative z-10 border-t transition-colors duration-300 ${
         isDarkMode ? 'border-zinc-900 bg-[#070707] text-zinc-500' : 'border-zinc-200 bg-white text-zinc-600'
-      } px-6 py-8`}>
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <div className={`w-6 h-6 rounded border flex items-center justify-center font-bold text-xs transition-colors duration-300 ${
-              isDarkMode ? 'bg-zinc-900 border-zinc-800 text-white' : 'bg-zinc-100 border-zinc-200 text-zinc-800'
-            }`}>
-              M
+      } px-6 py-10`}>
+        <div className="max-w-5xl mx-auto">
+          {/* Top Section - Name and Contact */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            {/* Left - Brand */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-extrabold text-sm shadow-sm transition-colors duration-300 ${
+                  isDarkMode ? 'bg-white text-zinc-950' : 'bg-zinc-950 text-white'
+                }`}>
+                  MK
+                </div>
+                <div>
+                  <div className={`text-sm font-bold font-display transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>
+                    Mrunali Kale
+                  </div>
+                  <div className="text-[10px] font-mono text-zinc-500">
+                    Pune, Maharashtra, India
+                  </div>
+                </div>
+              </div>
             </div>
-            <span className="text-xs font-mono">
-              Designed by Mrunali Kale • San Francisco Bay Area, CA
-            </span>
+
+            {/* Right - Contact Info */}
+            <div className="space-y-2">
+              <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-3">Get in Touch</div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
+                <a href="mailto:mrunalipradeepkale@gmail.com" className={`transition-colors ${isDarkMode ? 'hover:text-white' : 'hover:text-zinc-950'}`}>
+                  Email ↗
+                </a>
+                <a href="https://www.linkedin.com/in/mrunalikale/" target="_blank" rel="noopener noreferrer" className={`transition-colors ${isDarkMode ? 'hover:text-white' : 'hover:text-zinc-950'}`}>
+                  LinkedIn ↗
+                </a>
+                <a href="https://github.com/mrunaliKale31" target="_blank" rel="noopener noreferrer" className={`transition-colors ${isDarkMode ? 'hover:text-white' : 'hover:text-zinc-950'}`}>
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
           </div>
 
-          <div className="flex items-center gap-4 text-xs font-mono">
-            <span className={`cursor-pointer transition-colors ${isDarkMode ? 'hover:text-white' : 'hover:text-zinc-950'}`} onClick={() => handleNavigate('home')}>Home</span>
-            <span>•</span>
-            <span className={`cursor-pointer transition-colors ${isDarkMode ? 'hover:text-white' : 'hover:text-zinc-950'}`} onClick={() => handleNavigate('about')}>About</span>
-            <span>•</span>
-            <span className={`cursor-pointer transition-colors ${isDarkMode ? 'hover:text-white' : 'hover:text-zinc-950'}`} onClick={() => handleNavigate('projects')}>Projects</span>
-            <span>•</span>
-            <span className={`cursor-pointer transition-colors ${isDarkMode ? 'hover:text-white' : 'hover:text-zinc-950'}`} onClick={() => handleNavigate('work')}>Inquiry</span>
-          </div>
-
-          <div className="text-[10px] font-mono text-zinc-600">
-            © 2026 MRUNALI_KALE.OS. ALL SHIFT RIGHTS RESERVED.
+          {/* Bottom Section - Copyright */}
+          <div className={`pt-6 border-t text-center transition-colors ${
+            isDarkMode ? 'border-zinc-900' : 'border-zinc-200'
+          }`}>
+            <div className="text-[10px] font-mono text-zinc-500">
+              © 2026 Mrunali Kale • All Rights Reserved
+            </div>
           </div>
         </div>
       </footer>
